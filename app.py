@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     # We will change this to the CI/CD message in the second sprint
-    return "Hello world"
+    return "Hello World. I was updated with CI!"
 
 if __name__ == "__main__":
     # Container Apps usually listen on port 80 or 8080
