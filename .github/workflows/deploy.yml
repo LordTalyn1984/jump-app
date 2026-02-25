@@ -24,11 +24,12 @@ jobs:
           docker build -t jumpgavinreg.azurecr.io/jump-app:${{ github.sha }} .
           docker push jumpgavinreg.azurecr.io/jump-app:${{ github.sha }}
 
-      - name: Deploy to Azure Container Apps
+      - name: Build and deploy Container App
         uses: azure/container-apps-deploy-action@v1
         with:
+          appSourcePath: ${{ github.workspace }}
           acrName: jumpgavinreg
+          acrUsername: ${{ secrets.ACR_USERNAME }}
+          acrPassword: ${{ secrets.ACR_PASSWORD }}
           containerAppName: jump-web-server
           resourceGroup: JumpAssessment-RG
-          imageToDeploy: jumpgavinreg.azurecr.io/jump-app:${{ github.sha }}
-          targetPort: 8080
