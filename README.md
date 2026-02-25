@@ -33,6 +33,7 @@ az containerapp create --name jump-web-server --resource-group JumpAssessment-RG
 
 # 3. Enable Registry Access for GitHub Actions
 az acr update --name jumpgavinreg --admin-enabled true
+
 📈 The Result
 The CI/CD pipeline ensures that any change to app.py is automatically:
 
